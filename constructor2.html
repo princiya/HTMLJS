@@ -1,0 +1,39 @@
+<html>
+	<script>
+		function Promise(param1) {
+			this.then = function(resolve, reject) {
+				try {
+					//resolve('success');
+					throw new Error('error from promise');
+				} catch(err) {
+					reject(err);
+				}
+			}
+		}
+		
+		var promise = new Promise(func1);
+		
+		promise.then(resolve, reject);
+		
+		function func1(resolve, reject) {
+		}
+		
+		function resolve(message) {
+			console.log("From resolve", message);
+		}
+		
+		function reject(err) {
+			console.log("From reject", err);
+		}
+		
+		/*
+		//this keyword in JS refers to the owner of the function
+		function test() {
+			this.a = 1;
+		}
+		
+		test();
+		console.log(window.a);
+		*/
+	</script>
+</html>

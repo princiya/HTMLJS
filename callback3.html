@@ -1,0 +1,33 @@
+<html>
+	<script>
+		/* Sample code
+		var FS = require('fs');
+
+		FS.readFile('file.txt', 'utf8', function(err, data) {
+		    if (err) throw err;     
+		    console.log('File has been read:', data);
+		});
+		*/
+		
+		function readFile(param1, param2, param3) {
+			param3(param1, param2);
+		}
+		
+		readFile(1, 2, function(val1, val2) {
+			console.log(val1+val2);
+		});
+		
+		/* alternate way
+		function readFile(param1, param2, param3) {
+			//do some processing with param1, param2
+			param3(param1, param2);
+		}
+		
+		readFile(1, 2, callback);
+		
+		function callback(val1, val2) {
+			console.log(val1+val2);
+		}	
+		*/
+	</script>
+</html>

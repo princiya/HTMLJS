@@ -1,0 +1,14 @@
+<html>
+	<script>
+		function makeFunc() {
+			var name = "Mozilla";
+			function displayName() {
+				console.log(name);
+			}
+			return displayName;
+		};
+		//makeFunc();
+		var myFunc = makeFunc();
+		myFunc();
+	</script>
+</html>

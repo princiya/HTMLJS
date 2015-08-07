@@ -1,0 +1,14 @@
+<html>
+	<script>
+		function test(callback) {
+			callback(1, 2);
+		}
+		
+		function callback(a, b) {
+			console.log("from callback function ", a+b);
+		}
+		
+		test(callback);
+		
+	</script>
+</html>

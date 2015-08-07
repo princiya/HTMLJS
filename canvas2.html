@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<style>
+			div {
+				display: block;
+			}
+			img, canvas {
+				width: 400px;
+				height: 400px;
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h3>Image</h3>
+			<!-- http://upload.wikimedia.org/wikipedia/commons/0/07/Avatar_girl_face.png -->
+			<img id="image1" src="image/avatar.png" />
+		</div>
+		<div>
+			<h3>Canvas</h3>
+			<canvas id="canvas1"></canvas>
+		</div>
+		<script>
+			window.onload = function() { //alert('here');
+				var c = document.getElementById("canvas1");
+			    var ctx = c.getContext("2d");
+			    var img = document.getElementById("image1");
+			    img.crossOrigin = "Anonymous";
+			    
+			    //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+			    
+			    ctx.drawImage(img, 0, 0, 150, 150);
+			    
+			    var imgData = ctx.getImageData(0, 0, 150, 150);
+			    console.log(new Uint8Array(imgData.data));
+			    // invert colors
+			    var i;
+			    for (i = 0; i < imgData.data.length; i += 4) {
+			        imgData.data[i] = 255 - imgData.data[i];
+			        imgData.data[i+1] = 255 - imgData.data[i+1];
+			        imgData.data[i+2] = 255 - imgData.data[i+2];
+			        imgData.data[i+3] = 255;
+			    }
+			    ctx.putImageData(imgData, 0, 0);
+			}
+			//drawImageOnCanvas();
+		</script>
+	</body>
+</html>
